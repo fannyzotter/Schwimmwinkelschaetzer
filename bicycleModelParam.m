@@ -6,8 +6,11 @@ sensor_speed_x = [time, my_data.Sensor_Vx];
 sensor_speed_y = [time, my_data.Sensor_Vy];
 sensor_yawrate = [time, my_data.Vehicle_States_yaw_angle];
 sideslip = [time, my_data.Vehicle_Side_Slip_Angle];
-steering1 = [time, my_data.Wheel_Spindle_Steer_L1];
+steering_left = my_data.Wheel_Spindle_Steer_L1;
+noise = 0.03 * randn(size(steering_left));
+noisy_steering1 = [time, noise+steering_left];
 steering2 = [time, my_data.Wheel_Spindle_Steer_R1];
+steering1 = [time, my_data.Wheel_Spindle_Steer_L1];
 diff_front_right = [time, my_data.differential_front_wheel_front_right_omega];
 diff_front_left= [time, my_data.differential_front_wheel_front_left_alpha];
 diff = [time, my_data.differential_front_wheel_front_right_angle];
@@ -24,7 +27,10 @@ lh = L-lv; %[m] distance from center of mass to rear axle
 Cy_f = 13223; %[N/rad] front tire corner stiffness
 Cy_r = 13223; %[N/rad] rear tire corner stiffness
 Thetaz = 124.403600; %[kg*m^2] yaw polar inertia
-
+Fz = 2150;
+gamma = 0;
+omega_fl = 30; omega_fr = 30; omega_rl = 25; omega_rr = 25; % Radgeschwindigkeiten [rad/s]
+Rw = 0.2; % Reifenradius [m]
 
 v = 18/3.6;
 
@@ -48,5 +54,6 @@ B = [b1; b2];
 
 % Messmatrix 
 H = [1 0;0 1]; 
-Q = [0.8 2; 1 0.8]; % Prozessrauschen
-R = 0.0001; % Messrauschen
+Q = [0.8 0.2; 0.4 0.8]; % Prozessrauschen
+R = 0.001; % Messrauschen
+
