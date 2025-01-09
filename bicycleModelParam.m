@@ -17,7 +17,7 @@ diff_front_left= [time, my_data.differential_front_wheel_front_left_alpha];
 diff = [time, my_data.differential_front_wheel_front_right_angle];
 xpo = [time, my_data.Vehicle_CM_Global_X];
 ypo = [time, my_data.Vehicle_CM_Global_Y];
-torque = [time, my_data.motor_to_rear_right_wheel_torque];
+torque = [time, my_data.torquewhat];
 % bicycle model parameters provided by GreanBEAR member Nils Haage
 
 m_veh = 215.000; %[kg] vehicle mass
@@ -29,7 +29,7 @@ lh = L-lv; %[m] distance from center of mass to rear axle
 Cy_f = 13223; %[N/rad] front tire corner stirearwheelffness
 Cy_r = 13223; %[N/rad] rear tire corner stiffness
 Thetaz = 124.403600; %[kg*m^2] yaw polar inertia
-Fz = 2150;
+Fz = 2900;
 gamma = 0;
 omega_fl = 30; omega_fr = 30; omega_rl = 25; omega_rr = 25; % Radgeschwindigkeiten [rad/s]
 Rw = 0.2; % Reifenradius [m]
