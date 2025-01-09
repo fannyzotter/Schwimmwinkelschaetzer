@@ -17,7 +17,7 @@ diff_front_left= [time, my_data.differential_front_wheel_front_left_alpha];
 diff = [time, my_data.differential_front_wheel_front_right_angle];
 xpo = [time, my_data.Vehicle_CM_Global_X];
 ypo = [time, my_data.Vehicle_CM_Global_Y];
-torque = [time, my_data.torquewhat];
+torque = [time, my_data.motor_to_rear_left_wheel_torque];
 % bicycle model parameters provided by GreanBEAR member Nils Haage
 
 m_veh = 215.000; %[kg] vehicle mass
