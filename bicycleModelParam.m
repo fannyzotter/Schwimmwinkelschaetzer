@@ -31,8 +31,7 @@ Cy_r = 13223; %[N/rad] rear tire corner stiffness
 Thetaz = 124.403600; %[kg*m^2] yaw polar inertia
 Fz = 2900;
 gamma = 0;
-omega_fl = 30; omega_fr = 30; omega_rl = 25; omega_rr = 25; % Radgeschwindigkeiten [rad/s]
-Rw = 0.2; % Reifenradius [m]
+Rw = 0.26; % Reifenradius [m]
 
 v = 18/3.6;
 
