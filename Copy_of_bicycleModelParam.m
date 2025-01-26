@@ -1,4 +1,4 @@
-my_data = resreader(['C:\Users\fanny\Desktop\Schwimmwinkelschaetzer\Simulation\BEAR24_v20240206_crc.res']);
+my_data = resreader(['C:\Users\fanny\Desktop\Schwimmwinkelschaetzer\Simulation\BEAR24_v20240206_sin.res']);
 time = my_data.System_Time;
 
 speed = [time, my_data.System_Mass_Center_Speed];
@@ -23,6 +23,8 @@ diff = [time, my_data.differential_front_wheel_front_right_angle];
 xpo = [time, my_data.Vehicle_CM_Global_X];
 ypo = [time, my_data.Vehicle_CM_Global_Y];
 torque = [time, my_data.motor_to_rear_left_wheel_torque];
+
+%engine_torque = my_data.;
 % bicycle model parameters provided by GreanBEAR member Nils Haage
 
 m_veh = 215.000; %[kg] vehicle mass
@@ -56,8 +58,8 @@ Rw = 0.26; % Reifenradius [m]
 ];
 
 
-    Q = diag([0.02, 0.02, 0.01, 0.1, 0.03, 0.00001, 0.00001, 0, 0.0005]);
-    
+    Q = diag([0.2, 0.2, 0.01, 0.5, 0.3, 0.0001, 0.001, 0, 0.05]);
+
 sensor_x0 = [xpo(1,2);
         ypo(1,2);
         steering1(1,2);
